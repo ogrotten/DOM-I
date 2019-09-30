@@ -50,12 +50,19 @@ function clg (x){console.log(x);}
 
 // nav
 const nav = Array.from(document.querySelectorAll('nav a'));
+
 const navNew = Object.entries(siteContent.nav);
+  // I realize that `object.entries` doesn't guarantee order,
+  // but it works in this assignment.
 
 for (let i = 0; i < nav.length; i++) {
   const e = nav[i];
   e.setAttribute("class", navNew[i][0]);
-  e.innerHTML = navNew[i][1];
+  e.textContent = navNew[i][1];
   // clg(navNew[i]);
   // clg(e);
 }
+
+document.getElementById("cta-img").src= siteContent.cta["img-src"];
+document.querySelector(".cta h1").textContent = siteContent.cta.h1;
+document.querySelector(".cta button").textContent = siteContent.cta.button;

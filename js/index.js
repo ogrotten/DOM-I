@@ -71,8 +71,6 @@ document.querySelector(".cta button").textContent = siteContent.cta.button;
 
 // section.main-content -------------------------------
 
-const main_top_text = Array.from(document.querySelectorAll('.top-content .text-content'));
-const main_bottom = Array.from(document.querySelectorAll('.bottom-content .text-content'));
 const mainNewData = Object.entries(siteContent["main-content"]);
 
 let contCount = 0;
@@ -86,7 +84,24 @@ for (let i = 0; i < document.querySelectorAll('.top-content .text-content').leng
   contCount++
 }
 
+document.getElementById("middle-img").src = siteContent["main-content"]["middle-img-src"];
+contCount++
 
+for (let i = 0; i < document.querySelectorAll('.bottom-content .text-content').length; i++) {
+  document.querySelector('.bottom-content').children[i].children[0].textContent = mainNewData[contCount][1]
+  contCount++
+  document.querySelector('.bottom-content').children[i].children[1].textContent = mainNewData[contCount][1]
+  contCount++
+}
+
+
+// section.contact -------------------------------
+const contactNewData = Object.entries(siteContent["contact"]);
+
+for (let i = 0; i < document.querySelector('.contact').children.length; i++) {
+  document.querySelector('.contact').children[i].textContent = contactNewData[i][1]
+  // clg(contactNewData[i][1])
+}
 
 
 // // clg(main_top_text[0])
